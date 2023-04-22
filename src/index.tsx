@@ -1,0 +1,18 @@
+import { App } from './core/app/App';
+import './styles/index.scss';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from 'react-redux'
+import { store } from './core/store/Store';
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+);
+
