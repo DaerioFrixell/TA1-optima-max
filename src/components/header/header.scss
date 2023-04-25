@@ -73,10 +73,28 @@
     }
 
     &__link {
+      position: relative;
       display: flex;
       justify-content: center;
       cursor: pointer;
       padding: 0;
+
+      &__counter {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 22px;
+        bottom: 4px;
+        border-radius: 50%;
+        background-color: rgba(242, 83, 83, 0.924);
+        color: #333;
+        font-weight: 600;
+        font-size: 1.5rem;
+        transform: translateY(-35%);
+
+        padding-top: .1rem;
+
+      }
     }
   }
 }

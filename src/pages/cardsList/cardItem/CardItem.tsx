@@ -1,18 +1,23 @@
 import "./cardItem.scss"
+import { CardType } from "../../../dataTypes/Card";
 import { FC } from 'react';
+import { useAppDispatch } from "../../../hooks/redux.hook";
+import { cartSlice } from "../../../model/cart/cart.slice";
 
 
-type CardItemType = {
-  price: number
-  title: string
-  image: string
-}
-
+type CardItemType = Pick<CardType, "id" | "title" | "price" | "image">
 export const CardItem: FC<CardItemType> = ({
   title,
   price,
-  image }
+  image,
+  id }
 ) => {
+  const dispatch = useAppDispatch()
+  const { increment } = cartSlice.actions
+
+  const addToCart = (id: number) => {
+    dispatch(increment(1))
+  }
 
   return (
     <div className="card-item">
@@ -31,7 +36,7 @@ export const CardItem: FC<CardItemType> = ({
         <span className="card-item__field__title">price</span>
         <span className="card-item__field__value">{price}</span>
       </div>
-      <button>add to cart</button>
+      <button onClick={() => addToCart(id)}>add to cart</button>
     </div>
   )
 }

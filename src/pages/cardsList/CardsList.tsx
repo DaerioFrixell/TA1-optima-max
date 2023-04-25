@@ -1,55 +1,42 @@
 import "./cardsList.scss"
 import { CardItem } from "./cardItem/CardItem"
-import { FC, useEffect, useState } from 'react';
-import axios from "axios";
-
-
-export type OneItemType = {
-  id: number
-  title: string
-  price: number
-  description: string
-  category: string
-  image: string
-  name: string
-  quantity: number
-  rating: {
-    rate: number
-    count: number
-  }
-}
-
-export type CardsType = OneItemType[]
+import { FC, useEffect } from 'react';
+import { useAppSelector } from "../../hooks/redux.hook";
+import { useDispatch } from "react-redux";
+import { GetCardActionCreator } from "../../model/card/card.actionCreator";
 
 
 export const CardList: FC = () => {
-  const [data, setData] = useState<CardsType>([])
+  const dispatch = useDispatch()
+  const { isLoading, cards } = useAppSelector(state => state.card)
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products?limit=7')
-      .then(res => setData(res.data))
+    dispatch(GetCardActionCreator())
   }, [])
 
+  if (isLoading) return <h1>Loading...</h1>
 
   return (
     <div className="card-list">
-      {(!data)
-        ? <p>loading...</p>
-        : data.map((i: any) => {
+      {(!!cards)
+        ? cards.map((i: any) => {
           return (
             <CardItem
               key={i.id}
+              id={i.id}
               title={i.title}
               price={i.price}
               image={i.image}
             />
           )
         })
+        : <p>no any cards</p>
       }
       <CardItem
         title={"add"}
         price={0}
         image={"a"}
+        id={123}
       />
     </div>
   )
