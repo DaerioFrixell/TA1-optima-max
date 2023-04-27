@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export type CartInitStateType = {
   count: string
@@ -10,12 +10,6 @@ export const cartSlice = createSlice({
     count: 0
   },
   reducers: {
-    increment(state, action: PayloadAction<number>) {
-      state.count += action.payload
-    },
-    decrement(state, action: PayloadAction<number>) {
-      state.count -= action.payload
-    }
   }
 })
 

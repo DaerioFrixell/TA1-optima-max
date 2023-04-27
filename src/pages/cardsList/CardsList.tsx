@@ -1,25 +1,20 @@
 import "./cardsList.scss"
 import { CardItem } from "./cardItem/CardItem"
-import { FC, useEffect } from 'react';
+import { FC, memo } from 'react';
 import { useAppSelector } from "../../hooks/redux.hook";
-import { useDispatch } from "react-redux";
-import { GetCardActionCreator } from "../../model/card/card.actionCreator";
+import { cardApi } from "../../model/card/card.service";
 
 
-export const CardList: FC = () => {
-  const dispatch = useDispatch()
-  const { isLoading, cards } = useAppSelector(state => state.card)
+export const CardList: FC = memo(() => {
+  const { data: cards } = cardApi.useFetchCardsQuery(7)
+  const { isLoading } = useAppSelector(state => state.card)
 
-  useEffect(() => {
-    dispatch(GetCardActionCreator())
-  }, [])
 
   if (isLoading) return <h1>Loading...</h1>
-
   return (
     <div className="card-list">
       {(!!cards)
-        ? cards.map((i: any) => {
+        ? cards.map(i => {
           return (
             <CardItem
               key={i.id}
@@ -27,6 +22,7 @@ export const CardList: FC = () => {
               title={i.title}
               price={i.price}
               image={i.image}
+              quantity={i.quantity}
             />
           )
         })
@@ -37,7 +33,8 @@ export const CardList: FC = () => {
         price={0}
         image={"a"}
         id={123}
+        quantity={0}
       />
     </div>
   )
-}
+})

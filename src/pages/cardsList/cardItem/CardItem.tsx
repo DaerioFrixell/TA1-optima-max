@@ -1,22 +1,31 @@
 import "./cardItem.scss"
 import { CardType } from "../../../dataTypes/Card";
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useAppDispatch } from "../../../hooks/redux.hook";
-import { cartSlice } from "../../../model/cart/cart.slice";
+import { cardSlice } from "../../../model/card/card.slice";
 
 
-type CardItemType = Pick<CardType, "id" | "title" | "price" | "image">
-export const CardItem: FC<CardItemType> = ({
+type CardItemType = Pick<CardType, "id" | "title" | "price" | "image" | "quantity">
+export const CardItem: FC<CardItemType> = React.memo(({
   title,
   price,
   image,
-  id }
+  id,
+  quantity }
 ) => {
   const dispatch = useAppDispatch()
-  const { increment } = cartSlice.actions
+  const { increment, decrement, addInCart } = cardSlice.actions
 
   const addToCart = (id: number) => {
-    dispatch(increment(1))
+    dispatch(addInCart(id))
+  }
+
+  const incrementFunc = (id: number) => {
+    dispatch(increment(id))
+  }
+
+  const decrementFunc = (id: number) => {
+    dispatch(decrement(id))
   }
 
   return (
@@ -36,7 +45,14 @@ export const CardItem: FC<CardItemType> = ({
         <span className="card-item__field__title">price</span>
         <span className="card-item__field__value">{price}</span>
       </div>
-      <button onClick={() => addToCart(id)}>add to cart</button>
+      {(!quantity)
+        ? <button onClick={() => addToCart(id)}>add to cart</button>
+        : <div className="">
+          <button onClick={() => incrementFunc(id)}>+</button>
+          <span>quantity: {quantity}</span>
+          <button onClick={() => decrementFunc(id)}>-</button>
+        </div>
+      }
     </div>
   )
-}
+})

@@ -32,6 +32,31 @@ export const cardSlice = createSlice(
         state.cards = null
         state.error = action.payload
       },
+      increment(state, action: PayloadAction<number>) {
+        state.cards?.map(card => {
+          if (action.payload === card.id) {
+            card.quantity += 1
+          }
+          return null
+        })
+      },
+      decrement(state, action: PayloadAction<number>) {
+        state.cards?.map(card => {
+          if (action.payload === card.id) {
+            if (card.quantity === 0) card.quantity = 0
+            card.quantity -= 1
+          }
+          return null
+        })
+      },
+      addInCart(state, action: PayloadAction<number>) {
+        state.cards?.map(card => {
+          if (action.payload === card.id) {
+            card.quantity = 1
+          }
+          return null
+        })
+      }
     }
   })
 

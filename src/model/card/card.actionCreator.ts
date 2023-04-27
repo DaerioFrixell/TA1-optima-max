@@ -9,7 +9,6 @@ export type GetCardActionCreatorType = {
 
 /** ACTION CREATOR */
 export const GetCardActionCreator = () => (
-  console.log('GetCardActionCreator'),
   {
     type: CardActionTypes.GET_CARD_REQUEST
   })

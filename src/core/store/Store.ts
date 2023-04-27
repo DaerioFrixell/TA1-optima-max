@@ -3,17 +3,21 @@ import createSagaMiddleware from 'redux-saga'
 import cartSlice from '../../model/cart/cart.slice'
 import cardSlice from '../../model/card/card.slice'
 import rootSaga from '../saga/saga'
+import { cardApi } from '../../model/card/card.service'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const rootReducer = combineReducers({
   cart: cartSlice,
   card: cardSlice,
+  [cardApi.reducerPath]: cardApi.reducer
 })
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
+    sagaMiddleware,
+    cardApi.middleware)
 });
 
 sagaMiddleware.run(rootSaga)
