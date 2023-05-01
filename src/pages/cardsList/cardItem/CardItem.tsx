@@ -1,31 +1,36 @@
 import "./cardItem.scss"
 import { CardType } from "../../../dataTypes/Card";
 import React, { FC } from 'react';
-import { useAppDispatch } from "../../../hooks/redux.hook";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux.hook";
 import { cardSlice } from "../../../model/card/card.slice";
+import { cartSlice } from "../../../model/cart/cart.slice";
+import { Button } from "../../../components/button/Button";
+import { QuantityCounter } from "../../../components/quantityCounter/QuantityCounter";
 
 
 type CardItemType = Pick<CardType, "id" | "title" | "price" | "image" | "quantity">
+
 export const CardItem: FC<CardItemType> = React.memo(({
   title,
   price,
   image,
   id,
-  quantity }
-) => {
+  quantity
+}) => {
   const dispatch = useAppDispatch()
-  const { increment, decrement, addInCart } = cardSlice.actions
+  const { increaseCardQuantity } = cardSlice.actions
+  const { addInCart } = cartSlice.actions
 
-  const addToCart = (id: number) => {
-    dispatch(addInCart(id))
-  }
-
-  const incrementFunc = (id: number) => {
-    dispatch(increment(id))
-  }
-
-  const decrementFunc = (id: number) => {
-    dispatch(decrement(id))
+  const addToCart = (
+    title: string,
+    price: number,
+    image: string,
+    id: number,
+    quantity: number
+  ) => {
+    let newItem = { title, price, image, id, quantity }
+    dispatch(addInCart(newItem))
+    dispatch(increaseCardQuantity(id))
   }
 
   return (
@@ -37,21 +42,23 @@ export const CardItem: FC<CardItemType> = React.memo(({
         width={"200"}
         height={"200"}
       />
-      <div className="card-item__field card-item__field--col">
-        <span className="card-item__field__title">name</span>
-        <span className="card-item__field__value">{title}</span>
-      </div>
-      <div className="card-item__field">
-        <span className="card-item__field__title">price</span>
-        <span className="card-item__field__value">{price}</span>
-      </div>
+      <span className="card-item__value">{title}</span>
+      <span className="card-item__value">{price}$</span>
+
       {(!quantity)
-        ? <button onClick={() => addToCart(id)}>add to cart</button>
-        : <div className="">
-          <button onClick={() => incrementFunc(id)}>+</button>
-          <span>quantity: {quantity}</span>
-          <button onClick={() => decrementFunc(id)}>-</button>
-        </div>
+        ? <Button
+          className={"card-item__button"}
+          onClick={() => addToCart(
+            title,
+            price,
+            image,
+            id,
+            quantity
+          )}
+          value={"add to cart"}
+        />
+        :
+        <QuantityCounter id={id} quantity={quantity} />
       }
     </div>
   )

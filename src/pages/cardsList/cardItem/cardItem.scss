@@ -1,23 +1,29 @@
 .card-item {
+  display: grid;
+  grid-template-rows: 1fr repeat(2, 20px) 1fr;
+  gap: 1rem;
   width: 40rem;
   height: 34rem;
   margin: 1rem;
-  border: 1px solid teal;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid teal;
+  border-radius: 8px;
 
-  &__field {
-    display: flex;
-    justify-content: space-between;
+  &__img {
+    margin: auto;
+  }
 
-    &--col {
-      display: grid;
-    }
+  &__value {
+    width: auto;
+    margin: auto;
+    font-size: 1.4rem;
+  }
 
-    &__title {
-      font-weight: 600;
-    }
-
-    &__value {
-      font-size: 1.4rem;
-    }
+  &__button {
+    margin: auto;
+    width: 14rem;
+    height: 3rem;
   }
 }

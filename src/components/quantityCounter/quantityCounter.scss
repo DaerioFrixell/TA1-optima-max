@@ -1,0 +1,16 @@
+.quantity-counter-wrapper {
+  display: grid;
+  width: 14rem;
+  margin: auto;
+  grid-template-columns: 20px 1fr 20px;
+
+  &__btn-counter {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  &__quantity {
+    margin: auto;
+  }
+
+}

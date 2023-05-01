@@ -2,15 +2,12 @@ import "./cardsList.scss"
 import { CardItem } from "./cardItem/CardItem"
 import { FC, memo } from 'react';
 import { useAppSelector } from "../../hooks/redux.hook";
-import { cardApi } from "../../model/card/card.service";
 
 
 export const CardList: FC = memo(() => {
-  const { data: cards } = cardApi.useFetchCardsQuery(7)
-  const { isLoading } = useAppSelector(state => state.card)
-
-
+  const { isLoading, cards } = useAppSelector(state => state.cards)
   if (isLoading) return <h1>Loading...</h1>
+
   return (
     <div className="card-list">
       {(!!cards)
@@ -33,7 +30,7 @@ export const CardList: FC = memo(() => {
         price={0}
         image={"a"}
         id={123}
-        quantity={0}
+        quantity={500}
       />
     </div>
   )

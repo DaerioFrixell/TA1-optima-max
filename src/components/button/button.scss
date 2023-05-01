@@ -1,0 +1,14 @@
+.button {
+  border: 1px solid rgba(48, 48, 48, 0.208);
+  border-radius: 5px;
+  background-color: rgb(225, 218, 218);
+  transition: .2s;
+
+  &:hover {
+    background-color: rgb(243, 234, 234);
+  }
+
+  &:active {
+    transform: scale(102%);
+  }
+}

@@ -1,13 +1,5 @@
-/**  TYPES */
-export enum CardActionTypes {
-  GET_CARD_REQUEST = 'getCardRequest',
-}
+import { CardActionTypes } from "./card.types";
 
-export type GetCardActionCreatorType = {
-  type: CardActionTypes.GET_CARD_REQUEST
-}
-
-/** ACTION CREATOR */
 export const GetCardActionCreator = () => (
   {
     type: CardActionTypes.GET_CARD_REQUEST

@@ -1,18 +1,15 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { CardsType } from "../../dataTypes/CardsList";
+import { CardInitStateType } from "./card.types";
 
-
-export type CardInitStateType = {
-  cards: CardsType | null
-  isLoading: boolean,
-  error: string | null
-}
 
 const initialState: CardInitStateType = {
   isLoading: false,
   cards: null,
   error: null
 }
+
+
 
 export const cardSlice = createSlice(
   {
@@ -32,32 +29,25 @@ export const cardSlice = createSlice(
         state.cards = null
         state.error = action.payload
       },
-      increment(state, action: PayloadAction<number>) {
+      increaseCardQuantity(state, action: PayloadAction<number>) {
         state.cards?.map(card => {
-          if (action.payload === card.id) {
-            card.quantity += 1
-          }
+          if (action.payload === card.id) card.quantity += 1
           return null
         })
       },
-      decrement(state, action: PayloadAction<number>) {
+      decreaseCardQuantity(state, action: PayloadAction<number>) {
         state.cards?.map(card => {
           if (action.payload === card.id) {
-            if (card.quantity === 0) card.quantity = 0
             card.quantity -= 1
+            if (card.quantity < 0) { card.quantity = 0 }
           }
           return null
         })
       },
-      addInCart(state, action: PayloadAction<number>) {
-        state.cards?.map(card => {
-          if (action.payload === card.id) {
-            card.quantity = 1
-          }
-          return null
-        })
-      }
     }
   })
+
+
+
 
 export default cardSlice.reducer

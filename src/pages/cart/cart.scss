@@ -1,0 +1,16 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin: 4rem auto;
+    text-align: center;
+  }
+
+  &__item {
+    border: 1px solid teal;
+    width: 50rem;
+    margin: auto;
+
+  }
+}

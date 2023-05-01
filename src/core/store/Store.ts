@@ -9,7 +9,7 @@ const sagaMiddleware = createSagaMiddleware()
 
 const rootReducer = combineReducers({
   cart: cartSlice,
-  card: cardSlice,
+  cards: cardSlice,
   [cardApi.reducerPath]: cardApi.reducer
 })
 
