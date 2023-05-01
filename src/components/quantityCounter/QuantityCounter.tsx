@@ -13,14 +13,12 @@ type QuantityCounterType = {
 export const QuantityCounter: FC<QuantityCounterType> = ({ id, quantity }) => {
   const dispatch = useAppDispatch()
   const { decreaseCardQuantity, increaseCardQuantity } = cardSlice.actions
-  const { increaseCartQuantity, decreaseCartQuantity, removeFromCart } = cartSlice.actions
-
+  const { increaseCartQuantity, decreaseCartQuantity } = cartSlice.actions
 
   const incrementFunc = (id: number) => {
     dispatch(increaseCardQuantity(id))
     dispatch(increaseCartQuantity(id))
   }
-
   const decrementFunc = (id: number) => {
     dispatch(decreaseCardQuantity(id))
     dispatch(decreaseCartQuantity(id))

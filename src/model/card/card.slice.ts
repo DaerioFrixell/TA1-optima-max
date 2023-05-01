@@ -44,6 +44,9 @@ export const cardSlice = createSlice(
           return null
         })
       },
+      clearQuantityCards(state, action: unknown) {
+        state.cards?.map(el => el.quantity = 0)
+      }
     }
   })
 

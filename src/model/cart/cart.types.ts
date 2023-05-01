@@ -11,5 +11,4 @@ export type ArrItemsinCartType = itemInCartType[]
 
 export type CartInitStateType = {
   cart: ArrItemsinCartType
-  totalQuantity: number
 }

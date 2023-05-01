@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useAppSelector } from "../../hooks/redux.hook";
 
 export const Header = () => {
-  // const { totalQuantity } = useAppSelector(state => state.cart)
+  const { cart } = useAppSelector(state => state.cart)
+  const totalCount = cart.reduce((prev: number, current) => { return prev + current.quantity }, 0)
 
   return (
     <div className="wrapper-header">
@@ -35,7 +36,7 @@ export const Header = () => {
         </button>
         <button className="header__icon">
           <Link to="cart" className="header__icon__link">
-            <div className="header__icon__link__counter">0</div>
+            <div className="header__icon__link__counter">{totalCount}</div>
             <img alt="" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgc3Ryb2tlPSIjNEQ0RDREIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxjaXJjbGUgY3g9IjkuODEiIGN5PSIyMC41OSIgcj0iLjk1IiBmaWxsPSIjRDhEOEQ4IiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSIxOC40IiBjeT0iMjAuNTkiIHI9Ii45NSIgZmlsbD0iI0Q4RDhEOCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZD0iTTEuNyAxLjk4aDMuMTdMNy43IDE0LjA5YTIuMTIgMi4xMiAwIDAwMi4xMSAxLjczaDguMTNjMS4wMi4wMiAxLjktLjcgMi4xLTEuNzNsMS43LTcuOEg2LjU2IiBzdHJva2Utd2lkdGg9IjIiLz48L2c+PC9zdmc+" />
           </Link>
         </button>
