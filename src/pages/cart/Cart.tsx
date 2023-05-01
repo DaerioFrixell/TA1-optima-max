@@ -1,17 +1,17 @@
+import "./cart.scss"
+import { memo } from "react"
 import { Link } from "react-router-dom"
 import { QuantityCounter } from "../../components/quantityCounter/QuantityCounter"
 import { useAppDispatch, useAppSelector } from "../../hooks/redux.hook"
 import { cartSlice } from "../../model/cart/cart.slice"
-import "./cart.scss"
 import { cardSlice } from "../../model/card/card.slice"
 
 
-export const Cart = () => {
+export const Cart = memo(() => {
   const dispatch = useAppDispatch()
   const { cart } = useAppSelector(state => state.cart)
   const { removeFromCart, clearCart } = cartSlice.actions
   const { clearQuantityCards } = cardSlice.actions
-
   const clearAll = () => {
     dispatch(clearCart())
     dispatch(clearQuantityCards())
@@ -19,7 +19,6 @@ export const Cart = () => {
 
   const totalSum = cart.reduce((prev: number, current) => { return prev + (current.price * current.quantity) }, 0)
   const totalCount = cart.reduce((prev: number, current) => { return prev + current.quantity }, 0)
-
   return (
     <section className="cart">
       <div className="cart-wrapper">
@@ -32,7 +31,6 @@ export const Cart = () => {
             <Link to="/"><u>Save Cart</u></Link>
           </p>
         </div>
-
         <div className="cart__product__wrapper">
           <ul className="cart__product__wrapper__list-items">
             {(!!cart?.length)
@@ -53,11 +51,11 @@ export const Cart = () => {
                       <p><b>Title: </b>{i.title}</p>
                       <p><b>Price: </b>{i.price}$</p>
                     </div>
-
                   </li>
                 )
               }) : <h2 className="cart__info__title"><i>Here is empty</i></h2>}
           </ul>
+
           <div className="cart__product__wrapper__sidabar">
             <button onClick={clearAll}>CLEAR ALL CART BUTTON</button>
             <div className="cart__product__wrapper__sidabar__discount">
@@ -68,12 +66,11 @@ export const Cart = () => {
               <p><b>Grand total: </b>{totalSum}$</p>
               <p><b>Total count product: </b>{totalCount}</p>
             </div>
-
             <button className="cart__product__wrapper__sidabar__buy">BUY NOW</button>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   )
-}
+})

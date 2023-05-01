@@ -13,7 +13,6 @@ export const MainPage = () => {
       </div>
       <p className="main-page__some-txt">We’re all about finding you that perfect pair.</p>
       <p className="main-page__some-txt__subtitle">As glasses wearers, we know how incredible the right pair can make you feel. Let’s find yours together.</p>
-
     </main>
   )
 }

@@ -1,7 +1,7 @@
 import "./cardItem.scss"
 import { CardType } from "../../../dataTypes/Card";
-import React, { FC } from 'react';
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux.hook";
+import { FC, memo } from 'react';
+import { useAppDispatch } from "../../../hooks/redux.hook";
 import { cardSlice } from "../../../model/card/card.slice";
 import { cartSlice } from "../../../model/cart/cart.slice";
 import { Button } from "../../../components/button/Button";
@@ -10,7 +10,7 @@ import { QuantityCounter } from "../../../components/quantityCounter/QuantityCou
 
 type CardItemType = Pick<CardType, "id" | "title" | "price" | "image" | "quantity">
 
-export const CardItem: FC<CardItemType> = React.memo(({
+export const CardItem: FC<CardItemType> = memo(({
   title,
   price,
   image,
@@ -20,7 +20,6 @@ export const CardItem: FC<CardItemType> = React.memo(({
   const dispatch = useAppDispatch()
   const { increaseCardQuantity } = cardSlice.actions
   const { addInCart } = cartSlice.actions
-
   const addToCart = (
     title: string,
     price: number,
@@ -57,8 +56,7 @@ export const CardItem: FC<CardItemType> = React.memo(({
           )}
           value={"add to cart"}
         />
-        :
-        <QuantityCounter id={id} quantity={quantity} />
+        : <QuantityCounter id={id} quantity={quantity} />
       }
     </div>
   )

@@ -1,6 +1,7 @@
 .quantity-counter-wrapper {
   display: flex;
   width: 10rem;
+  margin: 0 auto;
 
   &__btn-counter {
     width: 2.4rem;
@@ -10,5 +11,4 @@
   &__quantity {
     margin: 0 auto;
   }
-
 }
