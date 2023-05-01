@@ -1,8 +1,49 @@
 .main-page {
-  &__bg-photo {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    object-position: center;
+  &__promotion {
+    background-image: url(https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/d-hp-festival-n.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 48rem;
+
+    &__text {
+      width: 60rem;
+      padding: 10rem 0;
+      padding-left: 10rem;
+      color: #0f0f0f;
+      font-family: Roboto, Arial, sans-serif;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4;
+
+      &__h6 {
+        font-weight: 400;
+        font-size: 16px;
+      }
+
+      &__h3 {
+        font-size: clamp(44px, 2.9vw, 58px);
+      }
+    }
+  }
+
+  &__some-txt {
+    margin-top: 3rem;
+    font-family: Roboto, Arial, sans-serif;
+    color: #0f0f0f;
+    font-size: 4rem;
+    font-weight: 400;
+    text-align: center;
+
+    &__subtitle {
+      margin-top: 3rem;
+      font-family: inherit;
+      color: inherit;
+      font-size: 3rem;
+      font-weight: inherit;
+      text-align: center;
+      line-height: 30px;
+      color: #0f0f0f;
+    }
   }
 }

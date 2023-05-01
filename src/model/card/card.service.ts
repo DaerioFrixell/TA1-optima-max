@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react"
 import { CardsType } from "../../dataTypes/CardsList"
 
 
-export const getCard = async () => api.get("/products?limit=7")
+export const getCard = async () => api.get("/products?limit=14")
 
 /** RTK QUERY */
 export const cardApi = createApi({

@@ -1,3 +1,5 @@
+@import "../../styles/screenSize.scss";
+
 .wrapper-header {
   position: relative;
   width: 100%;
@@ -17,16 +19,29 @@
   z-index: 100;
 
   &__logo {
-    width: 10vw;
+    margin-right: 8rem;
+    width: 15rem;
   }
 
   &__nav {
-    &__list {
-      display: flex;
-      justify-content: space-between;
-      width: 10vw;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
 
-      &__item {}
+    &__item {
+      font-size: 1.8rem;
+      color: #333;
+      opacity: .7;
+      transition: .2s;
+
+      &:hover {
+        opacity: 1;
+        color: #1b1b1b;
+      }
+
+      &:active {
+        transform: scale(120%);
+      }
     }
   }
 
@@ -96,9 +111,7 @@
         font-weight: 600;
         font-size: 1.5rem;
         transform: translateY(-35%);
-
         padding-top: .1rem;
-
       }
     }
   }
@@ -106,4 +119,63 @@
 
 .header__input-wrapper__my-input .header__input-wrapper__my-input:focus+.header__input-wrapper__icon {
   opacity: .6;
+}
+
+@media (max-width: $middleScreenDT) {
+  .header {
+    width: 1200px;
+
+    &__logo {
+      margin-right: 8rem;
+      width: 15rem;
+    }
+  }
+}
+
+@media (max-width: $smallScreenDT) {
+  .header {
+    width: 900px;
+
+    &__logo {
+      margin-right: 8rem;
+      width: 15rem;
+    }
+  }
+}
+
+@media (max-width: $maxScreenPhone) {
+  .header {
+    width: 360px;
+    justify-content: space-between;
+
+    &__logo {
+      display: none;
+    }
+
+    &__nav {
+      &__item {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__input-wrapper {
+      display: none;
+    }
+  }
+
+  .like {
+    display: none;
+  }
+}
+
+@media (max-width: $smallScreenPhone) {
+  .header {
+    width: 240px;
+
+    &__nav {
+      &__item {
+        font-size: 1.6rem;
+      }
+    }
+  }
 }

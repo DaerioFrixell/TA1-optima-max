@@ -3,14 +3,17 @@ import "./mainPage.scss"
 export const MainPage = () => {
   return (
     <main className="main-page">
-      <img
-        className="main-page__bg-photo"
-        src="https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto/media/wysiwyg/lp23/d-hp-festival-n.png"
-        alt="" width="1280"
-        height="380" />
-      <h1>Интернет магазин</h1>
-      <h2>новые поступления</h2>
-      <h2>новости магазина</h2>
+      <div className="main-page__promotion">
+        <div className="main-page__promotion__text">
+          <p className="main-page__promotion__text__h6">Festival favorites.</p>
+          <p className="main-page__promotion__text__h3">30% off frames</p>
+          <p className="main-page__promotion__text__h3">+ free shipping.</p>
+          <p className="main-page__promotion__text__h6">Code: SAVE30</p>
+        </div>
+      </div>
+      <p className="main-page__some-txt">We’re all about finding you that perfect pair.</p>
+      <p className="main-page__some-txt__subtitle">As glasses wearers, we know how incredible the right pair can make you feel. Let’s find yours together.</p>
+
     </main>
   )
 }
