@@ -6,7 +6,7 @@ import { Cart } from "../pages/cart/Cart"
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      <Route path="/TA1-optima-max/" element={<MainPage />} />
       <Route path="/cards-list" element={<CardList />} />
       <Route path="/cart" element={<Cart />} />
     </Routes>

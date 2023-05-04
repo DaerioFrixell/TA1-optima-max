@@ -27,9 +27,9 @@ export const Cart = memo(() => {
           <h2 className="cart__info__title">Shopping cart</h2>
           <span className="cart__info__count">0 ITEMS IN CART</span>
           <p className="cart__info__links">
-            <Link to="/" ><u>Continue Shopping</u></Link>
+            <Link to="/cards-list" ><u>Continue Shopping</u></Link>
             <span>or </span>
-            <Link to="/"><u>Save Cart</u></Link>
+            <Link to="/TA1-optima-max/"><u>Save Cart</u></Link>
           </p>
         </div>
         <div className="cart__product__wrapper">
