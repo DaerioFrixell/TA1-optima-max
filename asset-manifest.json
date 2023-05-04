@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TA1-optima-max/static/css/main.6cf4c0b7.css",
+    "main.js": "/TA1-optima-max/static/js/main.a6bb208a.js",
+    "index.html": "/TA1-optima-max/index.html",
+    "main.6cf4c0b7.css.map": "/TA1-optima-max/static/css/main.6cf4c0b7.css.map",
+    "main.a6bb208a.js.map": "/TA1-optima-max/static/js/main.a6bb208a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6cf4c0b7.css",
+    "static/js/main.a6bb208a.js"
+  ]
+}
