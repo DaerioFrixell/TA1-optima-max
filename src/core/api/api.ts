@@ -6,5 +6,4 @@ export const api = axios.create({
     "accept": "application/json",
     "content-type": "application/json"
   }
-}
-)
+})

@@ -5,19 +5,20 @@ import cardSlice from '../../model/card/card.slice'
 import rootSaga from '../saga/saga'
 import { cardApi } from '../../model/card/card.service'
 
-const sagaMiddleware = createSagaMiddleware()
 
+const sagaMiddleware = createSagaMiddleware()
 const rootReducer = combineReducers({
   cart: cartSlice,
   cards: cardSlice,
-  [cardApi.reducerPath]: cardApi.reducer
+  [cardApi.reducerPath]: cardApi.reducer,
 })
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(
     sagaMiddleware,
-    cardApi.middleware)
+    cardApi.middleware,
+  )
 });
 
 sagaMiddleware.run(rootSaga)

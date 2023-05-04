@@ -5,6 +5,7 @@ import { QuantityCounter } from "../../components/quantityCounter/QuantityCounte
 import { useAppDispatch, useAppSelector } from "../../hooks/redux.hook"
 import { cartSlice } from "../../model/cart/cart.slice"
 import { cardSlice } from "../../model/card/card.slice"
+import { Button } from "../../components/button/Button"
 
 
 export const Cart = memo(() => {
@@ -57,18 +58,58 @@ export const Cart = memo(() => {
           </ul>
 
           <div className="cart__product__wrapper__sidabar">
-            <button onClick={clearAll}>CLEAR ALL CART BUTTON</button>
+            <Button
+              className="cart__product__wrapper__sidabar__btn clear"
+              onClick={clearAll}
+            >
+              <svg
+                width="180px"
+                height="60px"
+                viewBox="0 0 180 60"
+                className="border"
+              >
+                <polyline points="179,1 179,59 1,59 1,1 179,1" className="bg-line" />
+                <polyline points="179,1 179,59 1,59 1,1 179,1" className="hl-line" />
+              </svg>
+              <span>CLEAR CART</span>
+            </Button>
             <div className="cart__product__wrapper__sidabar__discount">
-              <input placeholder="coupon / store credit" />
-              <button>APPLY</button>
+              <div className="cart__product__wrapper__sidabar__discount__wrapper">
+                <input className="cart__product__wrapper__sidabar__discount__input" placeholder="coupon / store credit" />
+                <Button
+                  className="cart__product__wrapper__sidabar__btn apply"
+                >
+                  <svg
+                    width="180px"
+                    height="60px"
+                    viewBox="0 0 180 60"
+                    className="border"
+                  >
+                    <polyline points="179,1 179,59 1,59 1,1 179,1" className="bg-line" />
+                    <polyline points="179,1 179,59 1,59 1,1 179,1" className="hl-line" />
+                  </svg>
+                  <span>APPLY</span>
+                </Button>
+              </div>
             </div>
             <div className="cart__product__wrapper__sidabar__info">
               <p><b>Grand total: </b>{totalSum}$</p>
               <p><b>Total count product: </b>{totalCount}</p>
             </div>
-            <button className="cart__product__wrapper__sidabar__buy">BUY NOW</button>
-          </div>
 
+            <Button className="cart__product__wrapper__sidabar__btn buy">
+              <svg
+                width="180px"
+                height="60px"
+                viewBox="0 0 180 60"
+                className="border"
+              >
+                <polyline points="179,1 179,59 1,59 1,1 179,1" className="bg-line" />
+                <polyline points="179,1 179,59 1,59 1,1 179,1" className="hl-line" />
+              </svg>
+              <span>BUY NOW</span>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

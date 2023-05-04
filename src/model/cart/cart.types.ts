@@ -5,10 +5,9 @@ export type itemInCartType = Pick<CardType,
   | "price"
   | "image"
   | "id"
-  | "quantity">
-
+  | "quantity"
+>
 export type ArrItemsinCartType = itemInCartType[]
-
 export type CartInitStateType = {
   cart: ArrItemsinCartType
 }

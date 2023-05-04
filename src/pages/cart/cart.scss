@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+$transition: .5s;
+
 .cart-wrapper {
   display: flex;
   flex-direction: column;
@@ -75,18 +78,90 @@
       background-color: white;
 
       &__discount {
-        border-bottom: 1px solid rgba(130, 129, 129, 0.184);
+        margin-top: 3rem;
+        height: 7rem;
+
+        &__wrapper {
+          display: flex;
+          border: 2px solid #91C9FF;
+          border-radius: 7px;
+          width: 25rem;
+          height: 31px;
+          justify-content: center;
+          text-align: center;
+        }
+
+        &__input {
+          outline: none;
+          height: 30px;
+          background: transparent;
+          border: none;
+          padding-left: 1rem;
+        }
       }
 
       &__info {
         border-bottom: 1px solid rgba(130, 129, 129, 0.184);
       }
 
-      &__buy {
-        position: absolute;
-        left: 2rem;
-        bottom: 2rem;
+
+      &__btn {
+        cursor: pointer;
+        outline: none;
+        width: 180px;
+        height: 60px;
+        background: transparent;
+        border: 2px solid #91C9FF;
+        font-weight: 600;
+        align-items: center;
+        transition: $transition ease-in-out;
+
+        &:hover {
+          transition: $transition ease-in-out;
+          background: #91C9FF;
+        }
       }
     }
   }
+}
+
+.clear {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.apply {
+  width: 90px;
+  height: 30px;
+  border: none;
+}
+
+.buy {
+  position: absolute;
+  bottom: 2rem;
+  left: 25%;
+}
+
+
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: $transition ease-in-out;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: rgb(244, 239, 239);
+  font-size: 18px;
+  font-weight: 100;
 }
