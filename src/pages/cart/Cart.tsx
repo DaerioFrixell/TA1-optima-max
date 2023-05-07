@@ -25,7 +25,7 @@ export const Cart = memo(() => {
       <div className="cart-wrapper">
         <div className="cart__info">
           <h2 className="cart__info__title">Shopping cart</h2>
-          <span className="cart__info__count">0 ITEMS IN CART</span>
+          <span className="cart__info__count">{totalCount} ITEMS IN CART</span>
           <p className="cart__info__links">
             <Link to="/cards-list" ><u>Continue Shopping</u></Link>
             <span>or </span>

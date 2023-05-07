@@ -25,13 +25,6 @@ export const CardList: FC = memo(() => {
         })
         : <p>no any cards</p>
       }
-      <CardItem
-        title={"add"}
-        price={0}
-        image={"a"}
-        id={123}
-        quantity={500}
-      />
     </div>
   )
 })
