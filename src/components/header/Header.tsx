@@ -26,11 +26,6 @@ export const Header = () => {
           />
           <input className="header__input-wrapper__my-input" placeholder="I'm Searching For..." />
         </div>
-        <button className="header__icon like">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 22" width="22" height="22">
-            <path fill="none" stroke="#89959C" d="M12 21c1.987-1.153 11.81-6.572 11.493-13.974C23.175-.375 13.453-.936 12 5.218 10.548-.936.825-.375.508 7.026.19 14.428 10.013 19.847 12 21z"></path>
-          </svg>
-        </button>
         <button className="header__icon">
           <Link to="cart" className="header__icon__link">
             <div className="header__icon__link__counter">{totalCount}</div>

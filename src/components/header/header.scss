@@ -121,6 +121,8 @@
   opacity: .6;
 }
 
+
+
 @media (max-width: $middleScreenDT) {
   .header {
     width: 1200px;
@@ -161,10 +163,6 @@
     &__input-wrapper {
       display: none;
     }
-  }
-
-  .like {
-    display: none;
   }
 }
 
