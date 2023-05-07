@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useAppSelector } from "../../hooks/redux.hook";
 
 export const Header = () => {
-  const { cart } = useAppSelector(state => state.cart)
-  const totalCount = cart.reduce((prev: number, current) => { return prev + current.quantity }, 0)
+  const cart = useAppSelector(state => state.cart.cart)
+  const totalCount = cart?.reduce((prev: number, current) => { return prev + current.quantity }, 0)
 
   return (
     <div className="wrapper-header">

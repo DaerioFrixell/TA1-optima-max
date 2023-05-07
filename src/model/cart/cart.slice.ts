@@ -52,6 +52,7 @@ export const cartSlice = createSlice({
           if (el.quantity < 0) { el.quantity = 0 }
           return null
         }
+        return null
       })
     }
   }

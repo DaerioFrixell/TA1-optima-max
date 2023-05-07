@@ -1,10 +1,10 @@
 import { CardType } from "../../dataTypes/Card"
 
 export type itemInCartType = Pick<CardType,
-  "title"
+  "id"
+  | "title"
   | "price"
   | "image"
-  | "id"
   | "quantity"
 >
 export type ArrItemsinCartType = itemInCartType[]
