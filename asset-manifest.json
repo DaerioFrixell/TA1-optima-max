@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/TA1-optima-max/static/css/main.6cf4c0b7.css",
-    "main.js": "/TA1-optima-max/static/js/main.9ffcea61.js",
-    "index.html": "/TA1-optima-max/index.html",
-    "main.6cf4c0b7.css.map": "/TA1-optima-max/static/css/main.6cf4c0b7.css.map",
-    "main.9ffcea61.js.map": "/TA1-optima-max/static/js/main.9ffcea61.js.map"
+    "main.css": "/TA-9-optima-max/static/css/main.c2ee165a.css",
+    "main.js": "/TA-9-optima-max/static/js/main.15a10f62.js",
+    "index.html": "/TA-9-optima-max/index.html",
+    "main.c2ee165a.css.map": "/TA-9-optima-max/static/css/main.c2ee165a.css.map",
+    "main.15a10f62.js.map": "/TA-9-optima-max/static/js/main.15a10f62.js.map"
   },
   "entrypoints": [
-    "static/css/main.6cf4c0b7.css",
-    "static/js/main.9ffcea61.js"
+    "static/css/main.c2ee165a.css",
+    "static/js/main.15a10f62.js"
   ]
 }
