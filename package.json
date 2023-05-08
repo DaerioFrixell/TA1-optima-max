@@ -2,7 +2,7 @@
   "name": "optima-max",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://DaerioFrixell.github.io/TA1-optima-max",
+  "homepage": "https://DaerioFrixell.github.io/TA-9-optima-max",
   "dependencies": {
     "@redux-saga/types": "^1.2.1",
     "@reduxjs/toolkit": "^1.9.5",

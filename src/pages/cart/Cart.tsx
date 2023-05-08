@@ -27,9 +27,9 @@ export const Cart = memo(() => {
           <h2 className="cart__info__title">Shopping cart</h2>
           <span className="cart__info__count">{totalCount} ITEMS IN CART</span>
           <p className="cart__info__links">
-            <Link to="/cards-list" ><u>Continue Shopping</u></Link>
+            <Link to="/TA-9-optima-max/cards-list" ><u>Continue Shopping</u></Link>
             <span>or </span>
-            <Link to="/TA1-optima-max/"><u>Save Cart</u></Link>
+            <Link to="/TA-9-optima-max/"><u>Save Cart</u></Link>
           </p>
         </div>
         <div className="cart__product__wrapper">
@@ -62,15 +62,6 @@ export const Cart = memo(() => {
               className="cart__product__wrapper__sidabar__btn clear"
               onClick={clearAll}
             >
-              <svg
-                width="180px"
-                height="60px"
-                viewBox="0 0 180 60"
-                className="border"
-              >
-                <polyline points="179,1 179,59 1,59 1,1 179,1" className="bg-line" />
-                <polyline points="179,1 179,59 1,59 1,1 179,1" className="hl-line" />
-              </svg>
               <span>CLEAR CART</span>
             </Button>
             <div className="cart__product__wrapper__sidabar__discount">
