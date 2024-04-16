@@ -18,9 +18,9 @@ Library in that app:
 Also, I make some tests with "testing-library-react"
 
 There are some page in this app:
-The first page with info about imaginary company.
-The second page with products list. That page has functions "to add" product in cart, "increment and decrement" count of selected product and "remove" selected product. 
-The third page is "cart".  That page has functions "increment/decrement" count of selected product, remove product from cart and clear cart.
+- The first page with info about imaginary company.
+- The second page with products list. That page has functions "to add" product in cart, "increment and decrement" count of selected product and "remove" selected product.
+- The third page is "cart".  That page has functions "increment/decrement" count of selected product, remove product from cart and clear cart.
 
 If you wanna run this app local you need to make next steps:
 1. To make git clone, then "npm i", (if you use npm, but not yarn)
